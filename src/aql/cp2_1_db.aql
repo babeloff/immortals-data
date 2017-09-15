@@ -6,6 +6,14 @@
  * immortals/svn/castor/takserver/castor_query_overview.xlsx
  */
 
+options
+	timeout = 30
+
+pragma p0 = exec_cmdline {
+	"pwd"
+	"ls"
+}
+
 // HTML output is indicated by
 // html { (* " <html code> " *) }.
 // The imported javascript file renders the graphs (if any).
@@ -122,9 +130,9 @@ schema S0 = literal : Ty {
 
 instance s0_inst = import_csv : S0 {
 	// entities
-		Source -> "/home/fred/projects/immortals/svn/database/server/sample_small/source.csv"
-		CotEvent -> "/home/fred/projects/immortals/svn/database/server/sample_small/cot_event.csv"
-		CotEventPosition -> "/home/fred/projects/immortals/svn/database/server/sample_small/cot_event_position.csv"
+		Source -> "./data/sample_small/source.csv"
+		CotEvent -> "./data/sample_small/cot_event.csv"
+		CotEventPosition -> "./data/sample_small/cot_event_position.csv"
 	// options
 	//	id_column_name = "id"
 }
